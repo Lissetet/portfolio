@@ -1,0 +1,39 @@
+---
+import { Picture } from '@astrojs/image/components';
+import sharp from 'sharp';
+import * as info from '~/data/general.md'
+const { splash } = info.frontmatter
+
+function getAspectRatio(image) {
+  return sharp(`./public${image}`)
+  .metadata()
+  .then(info => {
+    return info.width / info.height;
+  })
+}
+
+var splashRatio = await getAspectRatio(splash);
+---
+<style>
+#splash-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: -30;
+  filter: blur(60px);
+  opacity: .5;
+  object-fit: cover;
+}
+</style>
+<Picture
+  id="splash-image"
+  loading="eager"
+  src={splash}
+  widths={[2000, 1500, 1000, 500]}
+  aspectRatio={splashRatio}
+  sizes="100vw"
+  quality={100}
+  alt="Decorative background image"
+/>

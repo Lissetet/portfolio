@@ -1,0 +1,96 @@
+---
+import { Picture } from '@astrojs/image/components';
+import { Markdown } from "@astropub/md";
+import sharp from 'sharp';
+import * as info from '~/data/general.md'
+const { about, heading, liz } = info.frontmatter
+function getAspectRatio(image) {
+  return sharp(`./public${image}`)
+  .metadata()
+  .then(info => {
+    return info.width / info.height;
+  })
+}
+var lizRatio = await getAspectRatio(liz);
+---
+<style>
+@media (min-width: 1024px) {
+  #liz {
+    margin-bottom: 5rem;
+}
+  #intro {
+    flex-direction: row;
+  }
+}
+#liz {
+  width: 400px;
+  max-width: 70vw;
+  border-radius: 1000px;
+  border: 2px solid var(--color-text);
+  opacity: .9;
+  margin-bottom: 0 !important;
+}
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+div {
+  display: flex;
+  gap: 1.25rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+#about {
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+#title {
+  text-transform: capitalize;
+}
+</style>
+<script define:vars={{heading}}>
+  document.addEventListener("DOMContentLoaded", function() {
+  // typing animation
+  function writeText(element, content) {
+    var contentArray = content.split("");
+    var current = 0;
+    var interval = setInterval(function() {
+      if (current < contentArray.length) {
+        element.textContent += contentArray[current++];
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+  }
+
+  var title = document.querySelector("#title");
+  writeText(title, heading);
+});
+</script>
+<section id="intro">
+  <Picture
+    id="liz"
+    loading="eager"
+    src={liz}
+    widths={[600, 400, 200]}
+    aspectRatio={lizRatio}
+    sizes="100%"
+    quality={100}
+    alt="Picture of Liz Trejo"
+  />
+  <article>
+    <h2 id="title"></h2>
+    <div id="about">
+      <Markdown of={about}/>
+    </div>
+    <div>
+      <button class="btn" onclick="switchSlide(1)">Learn More</button>
+      <button class="btn-offset" onclick="switchSlide(3)">Get In Touch</button>
+    </div>
+  </article>
+</section>

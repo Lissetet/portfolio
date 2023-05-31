@@ -1,0 +1,111 @@
+:root {
+	--color-background: #040119;
+	--color-primary: #66d1d8;
+	--color-secondary: hsl(334, 89%, 55%);
+	--color-primary-offset: hsl(184, 59%, 32%);
+	--color-secondary-offset: hsl(320, 59%, 40%);
+	--color-form-border: theme("colors.gray.100");
+  --color-text: theme("colors.neutral.100");
+	--color-text-offset: theme("colors.neutral.400");
+	--color-background-offset: hsl(251, 81%, 24%);
+	--color-border: rgb(249 250 251/00.25); /* gray.50 */
+}
+
+body {
+  height: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-size: clamp(1.125rem,
+    calc(1.125rem + ((1.25 - 1.125)
+    * ((100vw - 20rem) / (96 - 20)))), 1.25rem);
+  line-height: 1.6;
+}
+
+body *::selection {
+  background-color: var(--color-secondary);
+}
+
+.btn, .btn-offset {
+  border-radius: 100px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  width: fit-content;
+  color: var(--color-text);
+  min-width: 150px;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.btn:hover, .btn-offset:hover {
+  scale: 1.06;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.btn {
+  background: linear-gradient(145deg, var(--color-primary) 0%, var(--color-secondary-offset) 100%);
+  padding: calc(0.75rem + 1px) 2.5rem;
+}
+
+.btn-offset {
+  background: #ffffff50;
+  border: 1px solid #ffffff30;
+  padding: 0.75rem 2.5rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+section {
+  padding: calc(8vh + 6rem) 1.25rem 8vh 1.25rem;
+  height: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+a:hover {
+  text-decoration: underline;
+  transition: all 0.2s ease-in-out;
+}
+
+a {
+  color: var(--color-primary);
+  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+h2 {
+  font-size: clamp(2.8865075781941414rem, calc(2.8865075781941414rem + ((5.374771199999998 - 2.8865075781941414) * ((100vw - 20rem) / (96 - 20)))), 5.374771199999998rem);
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+h3 {
+  font-weight: 600;
+  font-size: clamp(1.802032470703125rem, calc(1.802032470703125rem + ((2.5919999999999996 - 1.802032470703125) * ((100vw - 20rem) / (96 - 20)))), 2.5919999999999996rem);
+  line-height: 1.2;
+  margin: 2.5rem 0;
+  text-align: center;
+}
+.subtitle {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: .5rem;
+  text-align: center;
+}
+.active:not([onclick="switchSlide(0)"]) {
+  color: var(--color-primary) !important;
+}

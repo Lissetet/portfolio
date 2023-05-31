@@ -1,0 +1,45 @@
+{
+  "name": "novus-web-dev",
+  "type": "module",
+  "version": "1.0.0",
+  "author": "Liz - Novus Digital Solutions <liz@novusdigital.com>",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --port 3001",
+    "start": "astro dev --host --port 3001",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write .",
+    "clean": "rimraf dist .astro node_modules"
+  },
+  "devDependencies": {
+    "@astrojs/image": "^0.15.0",
+    "@astrojs/partytown": "^1.1.0",
+    "@astrojs/react": "^2.2.0",
+    "@astrojs/sitemap": "^1.2.0",
+    "@astrojs/tailwind": "^3.0.1",
+    "@astropub/md": "^0.1.5",
+    "@types/micromodal": "^0.3.3",
+    "astro": "^2.0.14",
+    "astro-google-fonts-optimizer": "^0.2.2",
+    "astro-hover-prefetch": "^1.0.6",
+    "astro-icon": "^0.8.0",
+    "astro-netlify-cms": "^0.5.2",
+    "astro-robots-txt": "^0.4.0",
+    "astro-seo": "^0.7.1",
+    "graphql": "^15.8.0",
+    "netlify-identity-widget": "^1.9.2",
+    "prettier": "^2.8.4",
+    "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-tailwindcss": "^0.2.3",
+    "rimraf": "^4.1.2",
+    "sharp": "^0.31.3",
+    "tailwindcss": "^3.2.7",
+    "tailwindcss-fluid-type": "^2.0.3"
+  },
+  "dependencies": {
+    "micromodal": "^0.4.10",
+    "swiper": "^9.3.2"
+  }
+}

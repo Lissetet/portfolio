@@ -1,0 +1,146 @@
+---
+import { Picture } from '@astrojs/image/components';
+import { Markdown } from "@astropub/md";
+import { Icon } from "astro-icon";
+import * as info from '~/data/projects.md'
+const { heading, subtitle, summary, projects } = info.frontmatter
+import * as skillsInfo from '~/data/skills.md'
+const { skills } = skillsInfo.frontmatter
+//add Icon to each project
+projects.forEach((project) => {
+	project.icons = []
+	project.technologies.forEach((technology) => {
+		skills.forEach((skill) => {
+			if (technology.toLowerCase() === skill.title.toLowerCase()) {
+				project.icons.push(skill.icon)
+			}
+		})
+	})
+})
+---
+<style>
+	img {
+	width: 600px;
+  max-width: 70vw;
+  border: 1px solid var(--color-border);
+	border-radius: 10px;
+	margin-bottom: 1rem;
+	}
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 2rem;
+	}
+  li {
+    display: flex;
+		flex-direction: column;
+    text-align: center;
+    background: rgba(0,0,0,.4);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+		gap: 1rem;
+  }
+	.container {
+		flex-wrap: wrap;
+		justify-content: center;
+		display: flex;
+		gap: 1rem;
+	}
+	#projects {
+		flex-direction: column;
+		margin-bottom: 1rem;
+	}
+	div {
+		text-align: left;
+	}
+	header p:first-of-type {
+		font-weight: bold;
+		font-size: clamp(1.601806640625rem, calc(1.601806640625rem + ((2.1599999999999997 - 1.601806640625) * ((100vw - 20rem) / (96 - 20)))), 2.1599999999999997rem);
+    line-height: 1.2;
+	}
+
+	header p:nth-of-type(2){
+		color: var(--color-text-offset);
+		margin-bottom: 1rem;
+	}
+	ul p:nth-of-type(3){
+		opacity: .8;
+	}
+	ul p {
+		width: 100%;
+	}
+	ul div {
+		width: auto;
+	}
+	[astro-icon] {
+		height: 3em;
+		opacity: .8;
+	}
+	.icons {
+		margin: 2rem auto;
+		display: flex;
+		gap: 2rem;
+		width: fit-content;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.buttons {
+		display: flex;
+		margin: 1rem auto;
+		width: fit-content;
+		gap: 2rem;
+	}
+	.project-info {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>
+<section id="projects">
+  <div>
+    <p class="subtitle">{subtitle}</p>
+    <h2>{heading}</h2>
+  </div>
+  <p>{summary}</p>
+	<ul>
+	{
+		projects.map((project) => (
+			<li>
+				<header class="w-full">
+						<p>{project.title}</p>
+						<p>{project.description}</p>
+				</header>
+				<div class="container">
+					<Picture
+						loading="lazy"
+						src={project.image}
+						widths={[800]}
+						aspectRatio={1.8}
+						sizes="600px"
+						quality={100}
+						alt={`Screenshot of ${project.title}`}
+					/>
+					<div class="project-info">
+						<Markdown of={project.summary}/>
+						<div class="icons">
+							{
+								project.icons.map((icon) => (
+									<Icon name={icon} />
+								))
+							}
+						</div>
+					</div>
+				</div>
+				<div class="buttons">
+					<a class="btn" href={project.live} target="_blank">Live Demo</a>
+					<a class="btn-offset" href={project.github} target="_blank">Github</a>
+				</div>
+			</li>
+
+		))
+	}
+	</ul>
+
+</section>

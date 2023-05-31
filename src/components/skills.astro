@@ -1,0 +1,121 @@
+---
+import { Icon } from "astro-icon";
+import * as info from '~/data/skills.md'
+const { heading, subtitle, summary, skills } = info.frontmatter
+const categories = [
+  {
+    title: 'Front-End Development',
+    items: skills.filter((item) => item.category === 'front-end')
+  },
+  {
+    title: 'Back-End Development',
+    items: skills.filter((item) => item.category === 'back-end')
+  },
+  {
+    title: 'Databases',
+    items: skills.filter((item) => item.category === 'database')
+  },
+  // {
+  //   title: 'APIs',
+  //   items: skills.filter((item) => item.category === 'api')
+  // },
+  {
+    title: 'DevOps',
+    items: skills.filter((item) => item.category === 'devops')
+  },
+  {
+    title: 'Content Management System (CMS)',
+    items: skills.filter((item) => item.category === 'cms')
+  },
+  {
+    title: 'Design',
+    items: skills.filter((item) => item.category === 'design')
+  },
+  {
+    title: 'Skills',
+    items: skills.filter((item) => item.category === 'skills')
+  },
+  {
+    title: 'Deployment',
+    items: skills.filter((item) => item.category === 'deployment')
+  },
+  // {
+  //   title: 'Other',
+  //   items: skills.filter((item) => item.category === 'other')
+  // },
+
+]
+---
+<style>
+  [astro-icon] {
+    height: 5rem;
+    margin-bottom: 1.25rem;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 2rem;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    filter: hue-rotate(30deg);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    width: 250px;
+  }
+
+  li:hover {
+    animation: gradient 5s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 80% 80%;
+    }
+    50% {
+      background-position: 40% 40%;
+    }
+    100% {
+      background-position: 80% 80%;
+    }
+  }
+  li p:first-of-type {
+    color: var(--color-text-offset);
+    font-size: clamp(1rem, calc(1rem + ((1.0416666666666667 - 1) * ((100vw - 20rem) / (96 - 20)))), 1.0416666666666667rem);
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+  li p:last-of-type {
+    font-weight: 600;
+  }
+</style>
+<section id="skills">
+  <div>
+    <p class="subtitle">{subtitle}</p>
+    <h2>{heading}</h2>
+  </div>
+  <p>{summary}</p>
+  {
+    categories.map((item) => (
+    <article>
+      <h3>{item.title}</h3>
+      <ul>
+        {
+          item.items.map((skill) => (
+            <li style="background: linear-gradient(45deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('images/bgBlurry.png') 80% 80%/250%;">
+              <Icon name={skill.icon} />
+              <p>{skill.type}</p>
+              <p>{skill.title}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+    ))
+  }
+</section>
