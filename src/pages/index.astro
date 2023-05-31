@@ -65,7 +65,6 @@ import '~/styles/index.css'
     swiper = document.querySelector('swiper-container').swiper;
     var headerButtons = document.querySelectorAll('header button[onclick]');
     var modalButtons = document.querySelectorAll('.nav-item-modal');
-    console.log(modalButtons);
     swiper.on('slideChange', function () {
       var activeSlideIndex = swiper.activeIndex;
       headerButtons.forEach(function (button) {
