@@ -14,21 +14,21 @@ function getAspectRatio(image) {
 var lizRatio = await getAspectRatio(liz);
 ---
 <style>
-@media (min-width: 1024px) {
-  #liz {
-    margin-bottom: 5rem;
-}
-  #intro {
-    flex-direction: row;
-  }
-}
 #liz {
   width: 400px;
   max-width: 70vw;
   border-radius: 1000px;
   border: 2px solid var(--color-text);
   opacity: .9;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
+}
+@media (min-width: 1024px) {
+  #liz {
+    margin-bottom: 8rem;
+  }
+  #intro {
+    flex-direction: row;
+  }
 }
 article {
   display: flex;
