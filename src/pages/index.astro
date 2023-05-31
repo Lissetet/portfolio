@@ -43,17 +43,7 @@ import '~/styles/index.css'
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <!-- Scripts -->
-    <script>
-      const lazyLoadScripts = () => {
-        const swiperScript = document.createElement('script');
-        swiperScript.src = 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js';
-        document.head.appendChild(swiperScript);
-
-        window.removeEventListener('DOMContentLoaded', lazyLoadScripts);
-
-      }
-      window.addEventListener('DOMContentLoaded', lazyLoadScripts);
-    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 </head>
 <body>
   <SplashImage />
