@@ -42,8 +42,6 @@ import '~/styles/index.css'
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <!-- Scripts -->
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 </head>
 <body>
   <SplashImage />
@@ -53,6 +51,7 @@ import '~/styles/index.css'
     id="page-swiper"
     keyboard="true"
     auto-height="true"
+    navigation="true"
   >
     <swiper-slide><Splash /></swiper-slide>
     <swiper-slide><Skills /></swiper-slide>
@@ -65,21 +64,36 @@ import '~/styles/index.css'
     swiper = document.querySelector('swiper-container').swiper;
     var headerButtons = document.querySelectorAll('header button[onclick]');
     var modalButtons = document.querySelectorAll('.nav-item-modal');
+    headerButtons[1].classList.add('active');
+    modalButtons[0].classList.add('active');
+
     swiper.on('slideChange', function () {
       var activeSlideIndex = swiper.activeIndex;
       headerButtons.forEach(function (button) {
         button.classList.remove('active');
       });
-      headerButtons[activeSlideIndex].classList.add('active');
+      headerButtons[activeSlideIndex + 1].classList.add('active');
       modalButtons.forEach(function (button) {
         button.classList.remove('active');
       });
-      activeSlideIndex != 0 ? modalButtons[activeSlideIndex - 1].classList.add('active') : null;
+      activeSlideIndex != 0 ? modalButtons[activeSlideIndex].classList.add('active') : null;
       window.scroll({
         top: 0,
         left: 0,
       });
     });
+
+    // header background black on scroll
+    window.addEventListener('scroll', function () {
+      var header = document.querySelector('#page-header');
+      var scrollPosition = window.scrollY;
+      scrollPosition > 0 ? header.classList.add('fixed-header') : header.classList.remove('fixed-header');
+    });
+
   })
+</script>
+<script>
+  import { register } from 'swiper/element';
+  register();
 </script>
 </html>

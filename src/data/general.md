@@ -8,6 +8,8 @@ about: |-
 
   Currently seeking a rewarding career as a full-stack developer, I'm excited to collaborate on creating amazing digital experiences together!
 navigation:
+  - title: About
+    url: switchSlide(0)
   - title: Skills
     url: switchSlide(1)
   - title: Projects
