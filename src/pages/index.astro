@@ -74,7 +74,11 @@ import '~/styles/index.css'
       modalButtons.forEach(function (button) {
         button.classList.remove('active');
       });
-      modalButtons[activeSlideIndex - 1].classList.add('active');
+      activeSlideIndex != 0 ? modalButtons[activeSlideIndex - 1].classList.add('active') : null;
+      window.scroll({
+        top: 0,
+        left: 0,
+      });
     });
   })
 </script>
