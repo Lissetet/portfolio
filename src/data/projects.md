@@ -112,4 +112,40 @@ projects:
       - Tailwind CSS
       - GitHub
       - Visual Studio Code
+  - title: SF Street Eats
+    description: A website for a street food vendor, built with Astro
+    image: /images/sf_se.png
+    live: 'https://sfstreeteats.com/'
+    github: 'https://github.com/lissetet/sfse'
+    summary: |-
+      SF Street Eats is a street food vendor that offers a variety of
+      delicious street food. Their website is designed with
+      responsiveness in mind, ensuring a seamless user experience across all
+      screen sizes. The deployment is managed through Netlify, which enables
+      automatic site rebuilds upon any changes in the source code, ensuring
+      that the latest content is always live.
+
+      The site offers an immersive user experience, featuring a moving fog
+      overlay across the Golden Gate Bridge and a neon sign that displays open
+      or closed depending on the business hours. The website automatically
+      adjusts to a light or dark theme based on the time of day, unless a user
+      has selected a default theme.
+
+      The tech stack employed by SF Street Eats includes HTML5, CSS3, and
+      JavaScript for the front-end, with Astro for static site generation and
+      React for dynamic UI components. Styling is handled via Tailwind CSS,
+      while Astro is used for a lean and fast development build process. Backend
+      operations are managed through Node.js, and Decap CMS is used for content
+      management. The development process is facilitated using GitHub, with
+      Visual Studio Code as the primary code editor.
+    technologies:
+      - HTML
+      - CSS
+      - JavaScript
+      - Astro
+      - Tailwind CSS
+      - Node.js
+      - Decap
+      - GitHub
+      - Visual Studio Code
 ---
