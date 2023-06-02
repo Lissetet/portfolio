@@ -28,6 +28,9 @@ body *::selection {
 }
 
 .btn, .btn-offset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 100px;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
@@ -117,4 +120,7 @@ h3 {
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
   transition: all 0.2s ease-in-out;
+}
+swiper-container {
+  padding-bottom: 3rem;
 }

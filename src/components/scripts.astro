@@ -1,0 +1,39 @@
+---
+
+---
+<script>
+	import { register } from 'swiper/element';
+	register();
+</script>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    swiper = document.querySelector('swiper-container').swiper;
+    var headerButtons = document.querySelectorAll('header button[onclick]');
+    var modalButtons = document.querySelectorAll('.nav-item-modal');
+    headerButtons[1].classList.add('active');
+    modalButtons[0].classList.add('active');
+
+    swiper.on('slideChange', function () {
+      var activeSlideIndex = swiper.activeIndex;
+      headerButtons.forEach(function (button) {
+        button.classList.remove('active');
+      });
+      headerButtons[activeSlideIndex + 1].classList.add('active');
+      modalButtons.forEach(function (button) {
+        button.classList.remove('active');
+      });
+      activeSlideIndex != 0 ? modalButtons[activeSlideIndex].classList.add('active') : null;
+      window.scroll({
+        top: 0,
+        left: 0,
+      });
+    });
+
+    window.addEventListener('scroll', function () {
+      var header = document.querySelector('#page-header');
+      var scrollPosition = window.scrollY;
+      scrollPosition > 0 ? header.classList.add('fixed-header') : header.classList.remove('fixed-header');
+    });
+
+  })
+</script>

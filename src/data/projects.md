@@ -15,22 +15,22 @@ projects:
     live: 'https://liz-task-list-api.onrender.com/'
     github: 'https://github.com/lissetet/task-list-api'
     summary: |-
-      The Task List API is a robust, web-based application developed to
-      streamline task management. It allows users to create, read, update,
-      and delete tasks remotely. Key features include task sorting, completion
-      marking, feedback via Slack, and goal organization.
+      The Task List API is a comprehensive web application created as a project
+      for Ada Dev Academy, focusing on efficient task management. It supports
+      CRUD operations for tasks and offers advanced features such as task sorting,
+      Slack feedback integration, and goal organization.
 
-      In addition to the API, a front-end interface was also developed using
-      vanilla JavaScript, HTML, and CSS. This interface, built beyond the
-      original project requirements, provides an interactive and user-friendly
-      environment to manage tasks. It uses JavaScript's Fetch API to communicate
-      with the Task List API, enabling users to perform all task operations
-      directly from the web interface.
+      While the project's original scope was limited to the API, a supplemental
+      user interface was personally developed to expand my knowledge in
+      JavaScript, HTML, and CSS. This self-initiated addition offers users a
+      dynamic, beautiful, user-friendly platform to manage tasks directly,
+      utilizing JavaScript's Fetch API for seamless interaction with the Task
+      List API.
 
-      The project demonstrates proficiency in using RESTful routes, managing
-      Flask models, leveraging external APIs, and front-end web development.
-      It also showcases the ability to create a complete, full-stack application
-      by connecting a custom API with a self-built front-end interface.
+      This venture exhibits my proficiency in RESTful routes, Flask models,
+      external API usage, and front-end web development, demonstrating the
+      capability to connect a bespoke API with a custom-built front-end interface
+      in a full-stack application.
     technologies:
       - Python
       - Flask
@@ -48,28 +48,13 @@ projects:
     live: 'https://novusdigital.co/'
     github: 'https://github.com/lissetet/novusv2'
     summary:  |-
-      Novus Digital Solutions is a company that delivers custom,
-      high-quality, and user-centric websites tailored to the specific needs of
-      small businesses. Notable features of their websites include dark/light
-      mode for enhanced user comfort, and a blog powered by Decap CMS (formerly
-      Netlify CMS), which is integrated with GitHub for seamless content updates.
-      Their deployment is managed through Netlify, which enables automatic site
-      rebuilds upon any changes in the CMS, ensuring that the latest content is
-      always live.
-
-      Moreover, the company's websites are designed with responsiveness in mind,
-      ensuring a seamless user experience across all screen sizes. An emphasis on
-      performance optimization is also evident, with the company consistently
-      achieving a 99% score in Lighthouse performance evaluations, an indicator
-      of a fast and efficient user experience.
-
-      The tech stack employed by Novus Digital Solutions includes HTML5, CSS3,
-      and JavaScript for the front-end, with Astro for static site generation and
-      React for dynamic UI components. Styling is handled via Tailwind CSS, while
-      Astro is used for a lean and fast development build process. Backend operations
-      are managed through Node.js, and Decap CMS is used for content management. The
-      development process is facilitated using GitHub, with Visual Studio Code as the
-      primary code editor.
+      A bespoke web development company focusing on small businesses. I
+      utilized HTML5, CSS3, JavaScript, and React, with Astro for static site
+      generation and Tailwind CSS for styling. Backend operations are handled
+      with Node.js and Decap CMS for content management. The tech stack ensures
+      seamless, user-centric websites with dark/light mode, blog integration,
+      responsive design, and top-notch performance optimization. Deployment is
+      facilitated through Netlify with GitHub integration.
     technologies:
       - HTML
       - CSS
@@ -87,22 +72,13 @@ projects:
     live: 'https://liztrejo.dev/'
     github: 'https://github.com/lissetet/portfolio'
     summary: |-
-      This portfolio website was built using Astro, a static site generator
-      that combines the best parts of building websites with React, Vue, Svelte,
-      and other popular frameworks. It is a fast, flexible, and modern tool that
-      enables developers to build websites using their favorite tools and
-      frameworks, while also providing a lean and efficient development process.
-
-      The website is designed with responsiveness in mind, ensuring a seamless
-      user experience across all screen sizes. The deployment is managed through
-      Netlify, which enables automatic site rebuilds upon any changes in the
-      source code, ensuring that the latest content is always live.
-
-      The tech stack employed for this website includes HTML5, CSS3, and JavaScript
-      for the front-end, with Astro for static site generation. Styling is handled
-      via Tailwind CSS, while Astro is used for a lean and fast development build
-      process. The development process is facilitated using GitHub, with Visual
-      Studio Code as the primary code editor.
+      This showcase was developed using Astro, which allows the combining of
+      elements of React, Vue, Svelte, and other popular frameworks for a
+      versatile, efficient, and modern build process. The responsive design
+      guarantees a smooth user experience across devices. The website is
+      managed through Netlify and GitHub, ensuring the most recent content is
+      always accessible. The tech stack includes HTML5, CSS3, JavaScript, Astro,
+      and Tailwind CSS.
     technologies:
       - HTML
       - CSS
@@ -118,26 +94,12 @@ projects:
     live: 'https://sfstreeteats.com/'
     github: 'https://github.com/lissetet/sfse'
     summary: |-
-      SF Street Eats is a street food vendor that offers a variety of
-      delicious street food. Their website is designed with
-      responsiveness in mind, ensuring a seamless user experience across all
-      screen sizes. The deployment is managed through Netlify, which enables
-      automatic site rebuilds upon any changes in the source code, ensuring
-      that the latest content is always live.
-
-      The site offers an immersive user experience, featuring a moving fog
-      overlay across the Golden Gate Bridge and a neon sign that displays open
-      or closed depending on the business hours. The website automatically
-      adjusts to a light or dark theme based on the time of day, unless a user
-      has selected a default theme.
-
-      The tech stack employed by SF Street Eats includes HTML5, CSS3, and
-      JavaScript for the front-end, with Astro for static site generation and
-      React for dynamic UI components. Styling is handled via Tailwind CSS,
-      while Astro is used for a lean and fast development build process. Backend
-      operations are managed through Node.js, and Decap CMS is used for content
-      management. The development process is facilitated using GitHub, with
-      Visual Studio Code as the primary code editor.
+      I created an engaging website for this street food vendor featuring
+      responsive design, automatic theme adjustment, and immersive UI effects.
+      The front-end was built with HTML5, CSS3, JavaScript, Astro, and React,
+      with Tailwind CSS for styling. The backend relies on Node.js and Decap CMS,
+      ensuring constant content updates. Deployment and development are managed
+      through Netlify and GitHub, respectively.
     technologies:
       - HTML
       - CSS

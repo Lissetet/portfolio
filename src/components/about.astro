@@ -1,0 +1,133 @@
+---
+import { Picture } from '@astrojs/image/components';
+import { Markdown } from "@astropub/md";
+import { Icon } from "astro-icon";
+import sharp from 'sharp';
+import * as info from '~/data/general.md'
+const { about, heading, liz, highlights } = info.frontmatter
+function getAspectRatio(image) {
+  return sharp(`./public${image}`)
+  .metadata()
+  .then(info => {
+    return info.width / info.height;
+  })
+}
+var lizRatio = await getAspectRatio(liz);
+---
+<script define:vars={{heading}}>
+  document.addEventListener("DOMContentLoaded", function() {
+  // typing animation
+  function writeText(element, content) {
+    var contentArray = content.split("");
+    var current = 0;
+    var interval = setInterval(function() {
+      if (current < contentArray.length) {
+        element.textContent += contentArray[current++];
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+  }
+
+  var title = document.querySelector("#title");
+  writeText(title, heading);
+});
+</script>
+<style>
+#liz {
+  width: 350px;
+  max-width: 70vw;
+  border-radius: 1000px;
+  border: 2px solid var(--color-text);
+  opacity: .9;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  #about>div:first-child {
+    flex-direction: column;
+  }
+}
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+div:not(:first-of-type), div>article>div {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+div {
+  display: flex;
+  gap: 1.25rem;
+}
+article div:first-of-type {
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+#title {
+  text-transform: capitalize;
+}
+li {
+  list-style: disc;
+  margin-left: 1rem;
+  margin-bottom: .5rem;
+}
+#about {
+  display: flex;
+  flex-direction: column;
+  padding: calc(8vh + 4rem) 4vw 8vh 4vw;
+}
+#about>div:first-child {
+  align-items: center;
+}
+#about>div:nth-child(2) {
+  flex-direction: column;
+}
+#about>div:nth-child(2)>p {
+  font-weight: bold;
+  width: 100%;
+}
+[astro-icon] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: .5rem;
+}
+</style>
+<section id="about">
+  <div>
+    <Picture
+      id="liz"
+      loading="eager"
+      src={liz}
+      widths={[600, 400, 200]}
+      aspectRatio={lizRatio}
+      sizes="100%"
+      quality={100}
+      alt="Picture of Liz Trejo"
+    />
+    <article>
+      <h2 id="title"></h2>
+      <div>
+        <Markdown of={about}/>
+      </div>
+    </article>
+  </div>
+  <div>
+    <p>Key highlights of my technical expertise include:</p>
+    <ul>
+    {
+      highlights.map((item) => (
+        <li>{item}</li>
+      ))
+    }
+    </ul>
+  </div>
+  <div class="py-10">
+    <button class="btn" onclick="switchSlide(1)">Learn More<Icon name="fa-solid:arrow-right" /></button>
+    <a class="btn-offset" href="LizTrejoDevResume.pdf" target="_blank">Download CV<Icon name="ph:download-bold" /></a>
+  </div>
+</section>
