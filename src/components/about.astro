@@ -79,7 +79,7 @@ li {
 #about {
   display: flex;
   flex-direction: column;
-  padding: calc(8vh + 4rem) 4vw 8vh 4vw;
+  padding: calc(8vh + 4rem) 5vw 8vh 5vw;
 }
 #about>div:first-child {
   align-items: center;
@@ -95,6 +95,21 @@ li {
   width: 1.5rem;
   height: 1.5rem;
   margin-left: .5rem;
+}
+#about>div:last-child {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+@media (min-width: 640px) {
+  #about>div:last-child {
+    flex-direction: row;
+  }
+}
+#about button, #about button + a {
+  width: 15rem;
 }
 </style>
 <section id="about">
@@ -126,7 +141,7 @@ li {
     }
     </ul>
   </div>
-  <div class="py-10">
+  <div>
     <button class="btn" onclick="switchSlide(1)">Learn More<Icon name="fa-solid:arrow-right" /></button>
     <a class="btn-offset" href="LizTrejoDevResume.pdf" target="_blank">Download CV<Icon name="ph:download-bold" /></a>
   </div>

@@ -78,9 +78,10 @@ menu.addEventListener("click", (event) => {
 		text-transform: uppercase;
 		margin: 0 auto;
 	}
-	#socials {
+	#socials_mobile {
 		display: flex;
 		justify-content: center;
+		margin-top: 1rem;
 	}
 	[astro-icon] {
 		height: 3rem;
@@ -156,7 +157,7 @@ menu.addEventListener("click", (event) => {
 				))
 			}
 			</ul>
-			<ul id="socials">
+			<ul id="socials_mobile">
 				{
 					social.map((item) => (
 						<li>

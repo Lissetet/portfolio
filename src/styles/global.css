@@ -39,6 +39,7 @@ body *::selection {
   min-width: 150px;
   max-width: 90vw;
   margin: 0 auto;
+  text-align: center;
 }
 
 .btn:hover, .btn-offset:hover {
