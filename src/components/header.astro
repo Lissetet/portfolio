@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon";
 import * as info from '~/data/general.md'
 import Menu from '~/components/menu.astro';
-let { navigation, social, splash } = info.frontmatter
+let { navigation, social } = info.frontmatter
 ---
 <header
   id="page-header"
@@ -45,7 +45,7 @@ let { navigation, social, splash } = info.frontmatter
       social.map((item) => (
         <li>
           <a href={item.url} aria-label={item.title} target="_blank">
-            <Icon name={item.icon} class="h-8 text-default hover:text-primary"/>
+            <Icon name={item.icon} class="h-10 sm:h-8 text-default hover:text-primary"/>
           </a>
         </li>
       ))
