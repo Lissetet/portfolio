@@ -32,22 +32,6 @@ module.exports = {
       variants: {
         animation: ["motion-safe"]
       },
-      animation: {
-        'gradient': 'gradient 5s ease infinite',
-      },
-      keyframes: {
-        gradient: {
-          '0%': {
-            'background-position': '80% 80%',
-          },
-          '50%': {
-            'background-position': '40% 40%',
-          },
-          '100%': {
-            'background-position': '80% 80%',
-          },
-        },
-      },
     },
   },
   corePlugins: {
