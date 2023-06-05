@@ -37,7 +37,7 @@ a {
   @apply text-primary hover:underline transition-all ease-in-out font-bold;
 }
 h3 {
-  @apply font-semibold text-3xl my-10 text-center;
+  @apply font-semibold text-3xl text-center;
 }
 .subtitle {
   @apply font-semibold uppercase text-secondary mb-2 text-center;
