@@ -8,7 +8,7 @@ navigation:
 social:
   - title: LinkedIn
     url: https://linkedin.com/in/liz-trejo
-    icon: fa-brands:linkedin
+    icon: mdi:linkedin
   - title: GitHub
     url: https://github.com/lissetet
     icon: mdi:github

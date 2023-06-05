@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const slides = document.querySelectorAll('main>section');
   const allButtons = [
     ...document.querySelectorAll('.nav-item'),
-    document.querySelector('#logo>button')
+    document.querySelector('#logo>button'),
+    document.querySelector('#learn')
   ];
 
   const activateSlide = (index=active) => {
+    window.scrollTo(0, 0);
     allButtons.forEach(button => button.classList.remove('active'));
     allButtons[index].classList.add('active');
     allButtons[index + 5].classList.add('active');
