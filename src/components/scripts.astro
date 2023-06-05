@@ -42,6 +42,11 @@
         document.querySelector('swiper-container').swiper.slidePrev()
       }
     })
+
+    const bg = document.querySelector('body>picture>img').currentSrc;
+    document.querySelectorAll('#skills li').forEach((item) => {
+      item.style.backgroundImage = `url('${bg}')`;
+    })
   })
 
   const switchSlide = (num) => {

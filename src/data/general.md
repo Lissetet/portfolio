@@ -13,7 +13,7 @@ navigation:
 social:
   - title: LinkedIn
     url: https://linkedin.com/in/liz-trejo
-    icon: mdi:linkedin
+    icon: fa-brands:linkedin
   - title: GitHub
     url: https://github.com/lissetet
     icon: mdi:github
