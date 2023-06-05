@@ -39,4 +39,13 @@
   const switchSlide = (num) => {
     document.querySelector('swiper-container').swiper.slideTo(num)
   }
+
+  //keyboard right switch slide
+  document.addEventListener('keydown', function (e) {
+    if (e.keyCode == 39) {
+      document.querySelector('swiper-container').swiper.slideNext()
+    } else if (e.keyCode == 37) {
+      document.querySelector('swiper-container').swiper.slidePrev()
+    }
+  })
 </script>

@@ -51,7 +51,9 @@ h3 {
   color: var(--color-primary) !important;
 }
 .fixed-header {
-  @apply fixed top-0 left-0 w-full backdrop-blur-xl border-b border-default;
+  @apply fixed top-0 left-0 w-full border-b border-default;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 swiper-container {
   @apply pb-12;
