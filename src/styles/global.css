@@ -7,121 +7,58 @@
 	--color-form-border: theme("colors.gray.100");
   --color-text: theme("colors.neutral.100");
 	--color-text-offset: theme("colors.neutral.400");
-	--color-background-offset: hsl(251, 81%, 24%);
-	--color-border: rgb(249 250 251/00.25); /* gray.50 */
+	--color-background-offset: rgba(0,0,0,.3);
+	--color-border: rgb(245, 245, 245, .3);
 }
-
 body {
-  height: 100%;
-  width: 100vw;
-  overflow-x: hidden;
-  background: var(--color-background);
-  color: var(--color-text);
-  font-size: clamp(1.125rem,
-    calc(1.125rem + ((1.25 - 1.125)
-    * ((100vw - 20rem) / (96 - 20)))), 1.25rem);
-  line-height: 1.6;
+  @apply h-full w-screen overflow-x-hidden bg-default text-default text-base;
 }
-
 body *::selection {
-  background-color: var(--color-secondary);
+  @apply bg-secondary;
 }
-
 .btn, .btn-offset {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100px;
-  font-weight: 500;
-  transition: all 0.2s ease-in-out;
-  width: fit-content;
-  color: var(--color-text);
-  min-width: 150px;
+  @apply flex items-center justify-center rounded-full border;
+  @apply text-default text-center font-medium no-underline;
+  @apply transition-all duration-200 ease-in-out hover:scale-105;
+  @apply w-60 mx-auto py-4 px-10;
   max-width: 90vw;
-  margin: 0 auto;
-  text-align: center;
 }
-
-.btn:hover, .btn-offset:hover {
-  scale: 1.06;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-}
-
 .btn {
-  background: var(--color-secondary-offset);
-  padding: calc(0.75rem + 1px) 2.5rem;
+  @apply bg-secondary-offset border-secondary-offset;
 }
-
 .btn-offset {
-  background: #ffffff50;
-  border: 1px solid #ffffff30;
-  padding: 0.75rem 2.5rem;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  @apply bg-white bg-opacity-30 border-default;
 }
 
 section {
   padding: calc(8vh + 4rem) 1.25rem 8vh 1.25rem;
-  height: 100%;
-  max-width: 75rem;
-  margin: 0 auto;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-a:hover {
-  text-decoration: underline;
-  transition: all 0.2s ease-in-out;
+  @apply h-full max-w-6xl mx-auto items-center flex flex-col gap-8;
 }
 
 a {
-  color: var(--color-primary);
-  transition: all 0.2s ease-in-out;
-  font-weight: bold;
+  @apply text-primary hover:underline transition-all ease-in-out font-bold;
 }
 h2 {
-  font-size: clamp(2.8865075781941414rem, calc(2.8865075781941414rem + ((5.374771199999998 - 2.8865075781941414) * ((100vw - 20rem) / (96 - 20)))), 5.374771199999998rem);
-  line-height: 1;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
+  @apply text-7xl font-bold uppercase text-center;
 }
 h3 {
-  font-weight: 600;
-  font-size: clamp(1.802032470703125rem, calc(1.802032470703125rem + ((2.5919999999999996 - 1.802032470703125) * ((100vw - 20rem) / (96 - 20)))), 2.5919999999999996rem);
-  line-height: 1.2;
-  margin: 2.5rem 0;
-  text-align: center;
+  @apply font-semibold text-3xl my-10 text-center;
 }
 .subtitle {
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--color-secondary);
-  margin-bottom: .5rem;
-  text-align: center;
+  @apply font-semibold uppercase text-secondary mb-2 text-center;
 }
 .active:not(#logo>[onclick="switchSlide(0)"]) {
   color: var(--color-primary) !important;
 }
 .fixed-header {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  background: rhba(0,0,0,0.7);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--color-border);
-  transition: all 0.2s ease-in-out;
+  @apply fixed top-0 left-0 w-full backdrop-blur-xl border-b border-default;
 }
 swiper-container {
-  padding-bottom: 3rem;
+  @apply pb-12;
+}
+input, textarea {
+  @apply w-full bg-offset border border-default rounded p-2;
+}
+div {
+  @apply flex gap-4 items-center;
 }

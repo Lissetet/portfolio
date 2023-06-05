@@ -7,11 +7,15 @@ import markdownIntegration from '@astropub/md';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https:/trejo.work/",
-  integrations: [tailwind(), image({
-    serviceEntryPoint: "@astrojs/image/sharp"
-  }), markdownIntegration(),
-  sitemap(), robotsTxt()],
+  site: "https:/liztrejo.dev",
+  integrations: [
+    tailwind(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp"
+    }),
+    markdownIntegration(),
+    sitemap(),
+    robotsTxt()],
   vite: {
     ssr: {
       external: ["svgo"],

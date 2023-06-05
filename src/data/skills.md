@@ -2,10 +2,19 @@
 heading: Skills & Technologies
 subtitle: Powering Digital Experiences with Advanced Technologies
 summary: In the ever-evolving landscape of web development, staying ahead requires
-    a diverse and up-to-date skill set. My portfolio showcases a comprehensive
-    array of skills and technologies that I have acquired and mastered throughout
-    my journey as a web developer. From front-end to back-end, databases to
-    deployment, I bring a wealth of expertise to the table.
+  a diverse and up-to-date skill set. My portfolio showcases a comprehensive
+  array of skills and technologies that I have acquired and mastered throughout
+  my journey as a web developer. From front-end to back-end, databases to
+  deployment, I bring a wealth of expertise to the table.
+categoryTitles:
+  front-end: Front-End Development
+  back-end: Back-End Development
+  database: Databases
+  devops: DevOps
+  cms: Content Management Systems (CMS)
+  design: Design
+  skills: Skills
+  deployment: Deployment
 skills:
   - title: HTML
     type: language

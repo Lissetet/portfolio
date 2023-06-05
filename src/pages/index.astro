@@ -1,41 +1,40 @@
 ---
-import SEO from '~/components/seo.astro'
-import Favicon from '~/components/favicon.astro'
-import Header from '~/components/header.astro'
+import SEO from '~/components/seo.astro';
+import Favicon from '~/components/favicon.astro';
+import Header from '~/components/header.astro';
 import About from '~/components/about.astro';
 import SplashImage from '~/components/splashImage.astro';
 import Experience from '~/components/experience.astro';
 import Skills from '~/components/skills.astro';
 import Projects from '~/components/projects.astro';
 import Contact from '~/components/contact.astro';
-import Menu from '~/components/menu.astro';
 import Footer from '~/components/footer.astro';
 import Scripts from '~/components/scripts.astro';
 import '~/styles/index.css'
 ---
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liz Trejo - Software Engineer</title>
-  <SEO />
-  <Favicon />
-  </html>
-</head>
-<body>
-  <SplashImage />
-  <Header />
-  <Menu />
-  <swiper-container id="page-swiper" auto-height="true">
-    <swiper-slide><About /></swiper-slide>
-    <swiper-slide><Experience /></swiper-slide>
-    <swiper-slide><Skills /></swiper-slide>
-    <swiper-slide><Projects /></swiper-slide>
-    <swiper-slide><Contact /></swiper-slide>
-  </swiper-container>
-  <Footer />
-</body>
-<Scripts />
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <SEO />
+    <Favicon />
+    </html>
+  </head>
+  <body>
+    <SplashImage />
+    <Header />
+    <main>
+      <swiper-container id="page-swiper" auto-height="true">
+        <swiper-slide><About /></swiper-slide>
+        <swiper-slide><Experience /></swiper-slide>
+        <swiper-slide><Skills /></swiper-slide>
+        <swiper-slide><Projects /></swiper-slide>
+        <swiper-slide><Contact /></swiper-slide>
+      </swiper-container>
+    </main>
+    <Footer />
+  </body>
+  <Scripts />
 </html>

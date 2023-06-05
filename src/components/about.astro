@@ -3,8 +3,10 @@ import { Picture } from '@astrojs/image/components';
 import { Markdown } from "@astropub/md";
 import { Icon } from "astro-icon";
 import sharp from 'sharp';
-import * as info from '~/data/general.md'
-const { about, heading, liz, highlights } = info.frontmatter
+
+import * as info from '~/data/about.md'
+const { about, heading, liz, highlights, resume } = info.frontmatter
+
 function getAspectRatio(image) {
   return sharp(`./public${image}`)
   .metadata()
@@ -16,104 +18,32 @@ var lizRatio = await getAspectRatio(liz);
 ---
 <script define:vars={{heading}}>
   document.addEventListener("DOMContentLoaded", function() {
-  // typing animation
-  function writeText(element, content) {
-    var contentArray = content.split("");
-    var current = 0;
-    var interval = setInterval(function() {
+    const writeText = (element, content) => {
+    const contentArray = content.split("");
+    let current = 0;
+    const interval = setInterval(function() {
       if (current < contentArray.length) {
         element.textContent += contentArray[current++];
       } else {
         clearInterval(interval);
+        const aboutContent = document.querySelectorAll("#about .opacity-0");
+        aboutContent.forEach((item) => {
+          item.classList.add('duration-1000', 'ease-in-out')
+          item.classList.remove("opacity-0");
+        });
       }
     }, 50);
   }
-
   var title = document.querySelector("#title");
   writeText(title, heading);
 });
 </script>
-<style>
-#liz {
-  width: 350px;
-  max-width: 70vw;
-  border-radius: 1000px;
-  border: 2px solid var(--color-text);
-  opacity: .9;
-  margin: 0 auto;
-}
-@media (max-width: 1024px) {
-  #about>div:first-child {
-    flex-direction: column;
-  }
-}
-article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-div:not(:first-of-type), div>article>div {
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out;
-  animation-fill-mode: forwards;
-  animation-delay: 1s;
-}
-div {
-  display: flex;
-  gap: 1.25rem;
-}
-article div:first-of-type {
-  flex-direction: column;
-  margin-bottom: 1rem;
-}
-#title {
-  text-transform: capitalize;
-}
-li {
-  list-style: disc;
-  margin-left: 1rem;
-  margin-bottom: .5rem;
-}
-#about {
-  display: flex;
-  flex-direction: column;
-  padding: calc(8vh + 4rem) 5vw 8vh 5vw;
-}
-#about>div:first-child {
-  align-items: center;
-}
-#about>div:nth-child(2) {
-  flex-direction: column;
-}
-#about>div:nth-child(2)>p {
-  font-weight: bold;
-  width: 100%;
-}
-[astro-icon] {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-left: .5rem;
-}
-#about>div:last-child {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-}
-@media (min-width: 640px) {
-  #about>div:last-child {
-    flex-direction: row;
-  }
-}
-#about button, #about button + a {
-  width: 15rem;
-}
-</style>
-<section id="about">
-  <div>
+<section
+  id="about"
+  class="flex flex-col"
+  style="padding-top: calc(8vh + 4rem); padding-bottom: 8vh;"
+>
+  <div class="flex-col lg:flex-row lg:gap-8">
     <Picture
       id="liz"
       loading="eager"
@@ -123,26 +53,34 @@ li {
       sizes="100%"
       quality={100}
       alt="Picture of Liz Trejo"
+      class="rounded-full opacity-90 mx-auto border-2 max-w-xs"
+      style="width: 70vw;"
     />
-    <article>
-      <h2 id="title"></h2>
-      <div>
+    <article class="flex flex-col gap-4 justify-center items-center">
+      <h2 id="title" class='capitalize'></h2>
+      <div class="opacity-0 flex-col mb-4">
         <Markdown of={about}/>
       </div>
     </article>
   </div>
-  <div>
-    <p>Key highlights of my technical expertise include:</p>
+  <div class="flex-col opacity-0">
+    <p class="font-bold w-full">
+      Key highlights of my technical expertise include:
+    </p>
     <ul>
     {
       highlights.map((item) => (
-        <li>{item}</li>
+        <li class="list-disc ml-4 mb-2">{item}</li>
       ))
     }
     </ul>
   </div>
-  <div>
-    <button class="btn" onclick="switchSlide(1)">Learn More<Icon name="fa-solid:arrow-right" /></button>
-    <a class="btn-offset" href="LizTrejoDevResume.pdf" target="_blank">Download CV<Icon name="ph:download-bold" /></a>
+  <div class="flex-col justify-center gap-4 py-4 opacity-0 sm:flex-row">
+    <button class="btn" onclick="switchSlide(1)">
+      Learn More<Icon class="h-5 ml-2" name="fa-solid:arrow-right" />
+    </button>
+    <a class="btn-offset" href={resume} target="_blank">
+      Download CV<Icon class="h-5 ml-2" name="ph:download-bold" />
+    </a>
   </div>
 </section>

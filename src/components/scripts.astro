@@ -7,14 +7,14 @@
 </script>
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function () {
-    swiper = document.querySelector('swiper-container').swiper;
-    var headerButtons = document.querySelectorAll('header button[onclick]');
-    var modalButtons = document.querySelectorAll('.nav-item-modal');
+    const swiper = document.querySelector('swiper-container').swiper;
+    const headerButtons = document.querySelectorAll('header button[onclick]');
+    const modalButtons = document.querySelectorAll('.nav-item-modal');
     headerButtons[1].classList.add('active');
     modalButtons[0].classList.add('active');
 
     swiper.on('slideChange', function () {
-      var activeSlideIndex = swiper.activeIndex;
+      const activeSlideIndex = swiper.activeIndex;
       headerButtons.forEach(function (button) {
         button.classList.remove('active');
       });
@@ -30,9 +30,13 @@
     });
 
     window.addEventListener('scroll', function () {
-      var header = document.querySelector('#page-header');
-      var scrollPosition = window.scrollY;
+      const header = document.querySelector('#page-header');
+      let scrollPosition = window.scrollY;
       scrollPosition > 0 ? header.classList.add('fixed-header') : header.classList.remove('fixed-header');
     });
   })
+
+  const switchSlide = (num) => {
+    document.querySelector('swiper-container').swiper.slideTo(num)
+  }
 </script>

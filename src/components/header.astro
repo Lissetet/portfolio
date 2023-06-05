@@ -1,140 +1,59 @@
 ---
 import { Icon } from "astro-icon";
 import * as info from '~/data/general.md'
-let { navigation, social } = info.frontmatter
+import Menu from '~/components/menu.astro';
+let { navigation, social, splash } = info.frontmatter
 ---
-<style>
-  #page-header {
-    position: absolute;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-    padding: 1rem 2rem;
-  }
-  button, #page-header {
-    text-transform: uppercase;
-  }
-  div {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-  }
-  #logo>[onclick="switchSlide(0)"]{
-    font-size: 40px;
-    font-weight: 800;
-    opacity: 0.8;
-    background: var(--color-primary);
-    border-radius: 100%;
-    padding: 0 10px;
-  }
-  #logo>[onclick="switchSlide(0)"]:hover {
-    opacity: 1;
-  }
-  #logo>div p {
-    display: none;
-    color: var(--color-primary);
-    line-height: 1;
-    font-weight: 900;
-    letter-spacing: 1px;
-  }
-  @media (min-width: 450px) {
-    #logo>div p {
-        display: block;
-    }
-  }
-  #logo>div p:first-of-type {
-    color: var(--color-text);
-    opacity: 0.7;
-    font-weight: 400;
-  }
-  #logo>div {
-    flex-direction: column;
-    gap: .5rem;
-  }
-  nav {
-    align-items: center;
-    display: none;
-    line-height: 1.6;
-  }
-  #socials {
-    display: none;
-    gap: .5rem;
-  }
-  @media (min-width: 1024px) {
-    nav {
-      display: block;
-    }
-    #socials {
-      display: flex;
-    }
-    #open-nav-button {
-      display: none;
-    }
-  }
-  nav ul {
-    gap: 2rem;
-    display: flex;
-  }
-  button:not([onclick="switchSlide(0)"]):hover {
-    color: var(--color-primary);
-    transition: all 0.2s ease-in-out;
-  }
-  button {
-    transition: all 0.2s ease-in-out;
-  }
-  #socials a {
-    color: var(--color-text);
-  }
-  #socials a:hover {
-    color: var(--color-primary);
-  }
-  [astro-icon] {
-    height: 2rem;
-  }
-</style>
-<script is:inline>
-  const switchSlide = (num) => {
-    document.querySelector('swiper-container').swiper.slideTo(num)
-  }
-</script>
-<header id="page-header">
+<header
+  id="page-header"
+  class="fixed top-0 z-10 flex items-center justify-between w-screen p-4"
+>
   <div id="logo">
-    <button onclick="switchSlide(0)" aria-label="Return to top">
+    <button
+      onclick="switchSlide(0)"
+      aria-label="Return to top"
+      class="opacity-80 hover:opacity-100 font-extrabold bg-primary
+        rounded-full p-2 text-4xl"
+    >
       <p>LT</p>
     </button>
-    <div>
-      <p>Portfolio</p>
-      <p>Liz Trejo</p>
+    <div class="flex-col hidden xxs:block tracking-none pb-2 uppercase">
+      <p class="opacity-70 font-normal">
+        Portfolio
+      </p>
+      <p class="text-primary leading-none tracking-widest font-black">
+        Liz Trejo
+      </p>
     </div>
   </div>
-  <nav>
-    <ul>
+  <nav class="items-center hidden leading-relaxed lg:block">
+    <ul class="gap-8 flex">
       {
         navigation.map((item) => (
           <li>
-            <button onclick={item.url}>{item.title}</button>
+            <button onclick={item.url} class="uppercase hover:text-primary">
+              {item.title}
+            </button>
           </li>
         ))
       }
     </ul>
   </nav>
   <div>
-    <ul id="socials">
-      {
-        social.map((item) => (
-          <li>
-            <a href={item.url} aria-label={item.title} target="_blank">
-              <Icon name={item.icon}/>
-            </a>
-          </li>
-        ))
-      }
+    <ul id="socials" class="hidden gap-2 lg:flex">
+    {
+      social.map((item) => (
+        <li>
+          <a href={item.url} aria-label={item.title} target="_blank">
+            <Icon name={item.icon} class="h-8 text-default hover:text-primary"/>
+          </a>
+        </li>
+      ))
+    }
     </ul>
-    <button id="open-nav-button" aria-label="Navigation">
-      <Icon name="mdi:menu"/>
+    <button id="open-nav-button" aria-label="Navigation" class="lg:hidden">
+      <Icon name="mdi:menu" class="h-8"/>
     </button>
   </div>
+  <Menu {navigation} {social}/>
 </header>

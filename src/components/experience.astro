@@ -1,73 +1,25 @@
 ---
-import { Icon } from "astro-icon";
+import Section from '~/components/section.astro'
 import * as info from '~/data/experience.md'
+const id = info.file.split('/').pop().split('.')[0]
 const { experience, subtitle, heading, summary } = info.frontmatter
 ---
-<style>
-  #experience h3 {
-    margin: .5rem 0;
-  }
-  h3 + p {
-    font-weight: bold;
-    text-align: center;
-    font-size: clamp(1.265625rem, calc(1.265625rem + ((1.5 - 1.265625) * ((100vw - 20rem) / (96 - 20)))), 1.5rem);
-    line-height: 1.6;
-  }
-  h3 + p + p {
-    color: var(--color-text-offset);
-    text-align: center;
-  }
-  h3 + p + p + p {
-    margin: 1.5rem 0;
-  }
-  h3 + p + p + p + p {
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  li>ul li {
-    list-style: disc;
-    margin-bottom: 0.5rem;
-    list-style-position: inside;
-  }
-  #experience>ul {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  #experience>ul>li {
-    background: rgba(0,0,0,.4);
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-</style>
-<section id="experience">
-  <div>
-    <p class="subtitle">
-      {subtitle}
-    </p>
-    <h2>{heading}</h2>
-  </div>
-  <p>
-    {summary}
-  </p>
-  <ul>
+<Section {id} {heading} {subtitle} {summary}>
+  <ul class="flex flex-col gap-8">
     {
       experience.map((item) => (
-      <li>
-        <h3>{item.title}</h3>
-        <p>{item.location}</p>
-        <p>{item.dates}</p>
-        <p>
+      <li class="bg-offset py-4 px-8 rounded-lg border border-default">
+        <h3 class="my-2">{item.title}</h3>
+        <p class="font-bold text-center text-lg">{item.location}</p>
+        <p class="text-offset text-center text-sm">{item.dates}</p>
+        <p class="my-6">
           {item.summary}
         </p>
-        <p>Key Accomplishments:</p>
+        <p class="font-bold text-center mb-4">Key Accomplishments:</p>
           <ul>
           {
             item.accomplishments.map((accomplishment) => (
-              <li>{accomplishment}</li>
+              <li class="list-disc mb-4 list-inside">{accomplishment}</li>
             ))
           }
           </ul>
@@ -75,7 +27,4 @@ const { experience, subtitle, heading, summary } = info.frontmatter
       ))
     }
   </ul>
-
-
-
-</section>
+</Section>

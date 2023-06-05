@@ -1,4 +1,5 @@
 ---
+id: projects
 heading: Featured Projects
 subtitle: A showcase of my full stack development capabilities
 summary: As a dedicated full stack developer, I take pride in crafting innovative
@@ -90,7 +91,7 @@ projects:
       - Visual Studio Code
   - title: SF Street Eats
     description: A website for a street food vendor, built with Astro
-    image: /images/sf_se.png
+    image: /images/sfse.png
     live: 'https://sfstreeteats.com/'
     github: 'https://github.com/lissetet/sfse'
     summary: |-

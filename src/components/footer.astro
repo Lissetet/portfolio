@@ -1,40 +1,19 @@
 ---
-let currentYear = new Date().getFullYear();
 import { Icon } from "astro-icon";
 import * as info from '~/data/general.md'
-let { navigation, social } = info.frontmatter
+const { social } = info.frontmatter
+let currentYear = new Date().getFullYear();
 ---
 <style>
-footer {
-  color: var(--color-text-offset);
-  font-size: clamp(1rem, calc(1rem + ((1.0416666666666667 - 1) * ((100vw - 20rem) / (96 - 20)))), 1.0416666666666667rem);
-  line-height: 1.6;
-  text-align: center;
-  padding: 2rem;
-}
-footer a {
-  font-weight: normal;
-}
 [astro-icon] {
-	height: 1.5rem;
-	color: var(--color-text-offset);
-	transition: all .3s ease-in-out;
-}
-[astro-icon]:hover {
-	color: var(--color-primary);
-	scale: 1.25;
-}
-ul {
-	display: flex;
-	justify-content: center;
-	margin-top: .25rem;
-	gap: .5rem;
+  @apply h-6 transition-all duration-300 ease-in-out text-offset;
+  @apply hover:scale-125 hover:text-primary;
 }
 </style>
-<footer>
+<footer class="text-offset text-sm text-center p-8">
 	<p>Copyright © Liz Trejo {currentYear}
 	</p>
-	<ul id="socials">
+	<ul id="socials" class="flex justify-center mt-1 gap-2">
 		{
 			social.map((item) => (
 				<li>
