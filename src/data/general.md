@@ -23,5 +23,5 @@ social:
   - title: Phone
     url: tel:7252501566
     icon: mdi:phone
-splash: /images/bgDark.png
+splash: /images/bgDarkBlurry.png
 ---
