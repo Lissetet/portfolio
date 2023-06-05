@@ -11,10 +11,7 @@
 	--color-border: rgb(245, 245, 245, .3);
 }
 body {
-  @apply h-full w-screen overflow-x-hidden bg-default text-default text-base;
-}
-body *::selection {
-  @apply bg-secondary;
+  @apply w-screen overflow-x-hidden bg-default text-default text-base min-h-screen selection:bg-secondary;
 }
 .btn, .btn-offset {
   @apply flex items-center justify-center rounded-full border;
@@ -29,17 +26,15 @@ body *::selection {
 .btn-offset {
   @apply bg-white bg-opacity-30 border-default;
 }
-
 section {
   padding: calc(8vh + 4rem) 1.25rem 8vh 1.25rem;
-  @apply h-full max-w-6xl mx-auto items-center flex flex-col gap-8;
+  @apply h-full max-w-6xl mx-auto items-center flex-col gap-8;
+  @apply transition-all duration-1000 ease-in-out;
+  opacity: 0;
+  display: none;
 }
-
 a {
   @apply text-primary hover:underline transition-all ease-in-out font-bold;
-}
-h2 {
-  @apply text-7xl font-bold uppercase text-center;
 }
 h3 {
   @apply font-semibold text-3xl my-10 text-center;
@@ -47,16 +42,13 @@ h3 {
 .subtitle {
   @apply font-semibold uppercase text-secondary mb-2 text-center;
 }
-.active:not(#logo>[onclick="switchSlide(0)"]) {
-  color: var(--color-primary) !important;
+.active {
+  color: var(--color-primary);
 }
 .fixed-header {
   @apply fixed top-0 left-0 w-full border-b border-default;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-swiper-container {
-  @apply pb-12;
 }
 input, textarea {
   @apply w-full bg-offset border border-default rounded p-2;

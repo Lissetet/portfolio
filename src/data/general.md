@@ -1,15 +1,10 @@
 ---
 navigation:
   - title: About
-    url: switchSlide(0)
   - title: Experience
-    url: switchSlide(1)
   - title: Skills
-    url: switchSlide(2)
   - title: Projects
-    url: switchSlide(3)
   - title: Contact
-    url: switchSlide(4)
 social:
   - title: LinkedIn
     url: https://linkedin.com/in/liz-trejo

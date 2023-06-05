@@ -4,8 +4,8 @@ const { id, heading, subtitle, summary } = Astro.props;
 <section {id} class="flex-col">
   <div class="flex-col">
     <p class="subtitle">{subtitle}</p>
-    <h2>{heading}</h2>
+    <h2 class="text-7xl font-bold uppercase text-center">{heading}</h2>
   </div>
-  <p>{summary}</p>
+  <p class="py-8">{summary}</p>
 	<slot />
 </section>

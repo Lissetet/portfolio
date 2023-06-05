@@ -10,7 +10,6 @@ let { navigation, social } = info.frontmatter
 >
   <div id="logo">
     <button
-      onclick="switchSlide(0)"
       aria-label="Return to top"
       class="opacity-80 hover:opacity-100 font-extrabold bg-primary
         rounded-full p-2 text-4xl"
@@ -31,7 +30,7 @@ let { navigation, social } = info.frontmatter
       {
         navigation.map((item) => (
           <li>
-            <button onclick={item.url} class="uppercase hover:text-primary">
+            <button class="uppercase hover:text-primary nav-item">
               {item.title}
             </button>
           </li>

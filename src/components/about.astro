@@ -57,13 +57,13 @@ var lizRatio = await getAspectRatio(liz);
       style="width: 70vw;"
     />
     <article class="flex flex-col gap-4 justify-center items-center">
-      <h2 id="title" class='capitalize'></h2>
+      <h2 id="title" class='capitalize text-7xl font-bold text-center'></h2>
       <div class="opacity-0 flex-col mb-4">
         <Markdown of={about}/>
       </div>
     </article>
   </div>
-  <div class="flex-col opacity-0">
+  <div class="flex-col opacity-0 my-8">
     <p class="font-bold w-full">
       Key highlights of my technical expertise include:
     </p>
@@ -75,7 +75,7 @@ var lizRatio = await getAspectRatio(liz);
     }
     </ul>
   </div>
-  <div class="flex-col justify-center gap-4 py-4 opacity-0 sm:flex-row">
+  <div class="flex-col justify-center gap-4 py-4 opacity-0 sm:flex-row w-fit mx-auto">
     <button class="btn" onclick="switchSlide(1)">
       Learn More<Icon class="h-5 ml-2" name="fa-solid:arrow-right" />
     </button>

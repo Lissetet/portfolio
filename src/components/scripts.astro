@@ -1,57 +1,50 @@
 ---
 
 ---
-<script>
-	import { register } from 'swiper/element';
-	register();
-</script>
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', function () {
-    const swiper = document.querySelector('swiper-container').swiper;
-    const headerButtons = document.querySelectorAll('header button[onclick]');
-    const modalButtons = document.querySelectorAll('.nav-item-modal');
-    headerButtons[1].classList.add('active');
-    modalButtons[0].classList.add('active');
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.querySelector('#page-header');
+  let active = 0;
+  const slides = document.querySelectorAll('main>section');
+  const allButtons = [
+    ...document.querySelectorAll('.nav-item'),
+    document.querySelector('#logo>button')
+  ];
 
-    swiper.on('slideChange', function () {
-      const activeSlideIndex = swiper.activeIndex;
-      headerButtons.forEach(function (button) {
-        button.classList.remove('active');
-      });
-      headerButtons[activeSlideIndex + 1].classList.add('active');
-      modalButtons.forEach(function (button) {
-        button.classList.remove('active');
-      });
-      activeSlideIndex != 0 ? modalButtons[activeSlideIndex].classList.add('active') : null;
-      window.scroll({
-        top: 0,
-        left: 0,
-      });
+  const activateSlide = (index=active) => {
+    allButtons.forEach(button => button.classList.remove('active'));
+    allButtons[index].classList.add('active');
+    allButtons[index + 5].classList.add('active');
+    slides.forEach((slide) => {
+      slide.style.opacity = 0;
+      slide.style.display = 'none';
     });
 
-    window.addEventListener('scroll', function () {
-      const header = document.querySelector('#page-header');
-      let scrollPosition = window.scrollY;
-      scrollPosition > 0 ? header.classList.add('fixed-header') : header.classList.remove('fixed-header');
-    });
+    slides[index].style.display = 'block';
 
-    document.addEventListener('keydown', function (e) {
-      if (e.keyCode == 39) {
-        document.querySelector('swiper-container').swiper.slideNext()
-      } else if (e.keyCode == 37) {
-        document.querySelector('swiper-container').swiper.slidePrev()
-      }
-    })
+    setTimeout(() => {
+      slides[index].style.opacity = 1;
+    }, 100);
+  }
 
-    const bg = document.querySelector('body>picture>img').currentSrc;
-    document.querySelectorAll('#skills li').forEach((item) => {
-      item.style.backgroundImage = `url('${bg}')`;
+  const handleScroll = () => {
+      header.classList.toggle('fixed-header', window.scrollY > 0);
+  }
+
+  window.addEventListener('scroll', handleScroll);
+
+  allButtons.forEach((button, index) => {
+    button.addEventListener('click', function () {
+      active = index % 5;
+      activateSlide();
     })
   })
 
-  const switchSlide = (num) => {
-    document.querySelector('swiper-container').swiper.slideTo(num)
-  }
+  const bg = document.querySelector('body>picture>img').currentSrc;
+    document.querySelectorAll('#skills li').forEach((item) => {
+      item.style.backgroundImage = `url('${bg}')`;
+  })
 
-
+  activateSlide();
+})
 </script>
