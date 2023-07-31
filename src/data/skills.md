@@ -192,10 +192,14 @@ skills:
     category: back-end
     type: api
     icon: mdi:api
-  - title: GraphQL
+  # - title: GraphQL
+  #   category: back-end
+  #   type: api
+  #   icon: cib:graphql
+  - title: Auth0
     category: back-end
     type: api
-    icon: cib:graphql
+    icon: cib:auth0
   # - title: OAuth
   #   category: api
   #   type: api
@@ -296,4 +300,12 @@ skills:
     category: back-end
     type: framework
     icon: sqlalchemy
+  - title: Vue
+    category: front-end
+    type: framework
+    icon: mdi:vuejs
+  - title: Mongoose
+    category: back-end
+    type: framework
+    icon: mongoose
 ---

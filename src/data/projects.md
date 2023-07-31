@@ -22,7 +22,7 @@ projects:
       React and Tailwind CSS, while the back-end was built with Flask, SQLAlchemy,
       and PostgreSQL. The tech stack ensures a seamless user experience with
       responsive design, automatic theme adjustment, and immersive UI effects.
-      Deployment and development are managed through Netlify and GitHub,
+      Deployment and development are managed through Render/Netlify and GitHub,
       respectively.
     technologies:
       - React
@@ -33,6 +33,51 @@ projects:
       - Netlify
       - GitHub
       - Visual Studio Code
+  - title: SpendWise
+    description: A fullstack financial management app
+    image: /images/coming-soon.png
+    live: null
+    github: 'https://github.com/lissetet/spendwise-backend'
+    summary: |-
+      Spendwise is a fullstack financial management app that allows users to create, 
+      edit, and delete financial transactions. The front-end is being built with 
+      Vue and PrimeVue, while the back-end was built with MongoDB, Express, and 
+      Node.js. The tech stack ensures a seamless user experience with 
+      responsive design, automatic theme adjustment, and immersive UI effects.
+      Deployment and development are managed through Netlify/Render and GitHub,
+      respectively.
+    technologies:
+      - Vue
+      - Mongoose
+      - MongoDB
+      - Express
+      - Node.js
+      - Netlify
+      - GitHub
+      - Auth0
+      - Visual Studio Code
+  # - title: Spendwise
+  #   description: A fullstack financial management app
+  #   image: /images/coming-soon.png
+  #   live: 'https://liztrejo.dev/'
+  #   github: 'https://github.com/lissetet/spendwise-backend'
+  #   summary: |-
+  #     Spendwise is a fullstack financial management app that allows users to create, 
+  #     edit, and delete financial transactions. The front-end is being built with 
+  #     Vue and PrimeVue, while the back-end was built with MongoDB, Express, and 
+  #     Node.js. The tech stack ensures a seamless user experience with 
+  #     responsive design, automatic theme adjustment, and immersive UI effects.
+  #     Deployment and development are managed through Netlify/Render and GitHub,
+  #     respectively.
+  #   technologies:
+  #     - Vue
+  #     - MongoDB
+  #     - Express
+  #     - Node.js
+  #     - Netlify
+  #     - GitHub
+  #     - Auth0
+  #     - Visual Studio Code
   - title: Task List API
     description: A RESTful API for managing tasks
     image: /images/task-list-api.png
