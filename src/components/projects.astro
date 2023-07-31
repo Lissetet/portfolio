@@ -8,15 +8,16 @@ const id = info.file.split('/').pop().split('.')[0]
 import * as skillsInfo from '~/data/skills.md'
 import Section from '~/components/section.astro'
 const { skills } = skillsInfo.frontmatter
-//add Icon to each project
+
 projects.forEach((project) => {
-	project.icons = []
-	project.technologies.forEach((technology) => {
-		skills.forEach((skill) => {
-			if (technology.toLowerCase() === skill.title.toLowerCase()) {
-				project.icons.push(skill.icon)
-			}
-		})
+	project.tech = []
+	project.techObjects = project.technologies.map((technology) => {
+		let info = skills.find((skill) => skill.title.toLowerCase() === technology.toLowerCase())
+		let obj = {
+			title: info.title,
+			icon: info.icon
+		}
+		return obj
 	})
 })
 ---
@@ -47,8 +48,12 @@ projects.forEach((project) => {
 						<Markdown of={project.summary}/>
 						<div class="my-4 mx-auto flex gap-8 w-fit flex-wrap justify-center">
 							{
-								project.icons.map((icon) => (
-									<Icon name={icon} class="h-12 opacity-80"/>
+								project.techObjects.map((technology) => (
+									<Icon
+										name={technology.icon}
+										class="h-12 opacity-80"
+										title={technology.title}
+									/>
 								))
 							}
 						</div>

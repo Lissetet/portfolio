@@ -10,6 +10,29 @@ summary: As a dedicated full stack developer, I take pride in crafting innovativ
   architectures, these projects demonstrate my commitment to delivering exceptional
   digital experiences.
 projects:
+  - title: Fullstack Inspiration Board
+    description: A fullstack inspiration board
+    image: /images/inspiration-board.png
+    live: 'https://inspiration-board.netlify.app'
+    github: 'https://github.com/lissetet/front-end-inspiration-board'
+    summary: |-
+      Lead a team of 3 developers to create a fullstack inspiration board. 
+      The Inspiration Board is a fullstack application that allows users to
+      create, edit, and delete inspiration cards. The front-end was built with
+      React and Tailwind CSS, while the back-end was built with Flask, SQLAlchemy,
+      and PostgreSQL. The tech stack ensures a seamless user experience with
+      responsive design, automatic theme adjustment, and immersive UI effects.
+      Deployment and development are managed through Netlify and GitHub,
+      respectively.
+    technologies:
+      - React
+      - Tailwind CSS
+      - Flask
+      - SQLAlchemy
+      - PostgreSQL
+      - Netlify
+      - GitHub
+      - Visual Studio Code
   - title: Task List API
     description: A RESTful API for managing tasks
     image: /images/task-list-api.png
@@ -37,7 +60,6 @@ projects:
       - Flask
       - SQLAlchemy
       - PostgreSQL
-      - Slack API
       - Render
       - HTML
       - CSS
@@ -65,28 +87,6 @@ projects:
       - Tailwind CSS
       - Node.js
       - Decap
-      - GitHub
-      - Visual Studio Code
-  - title: Portfolio Website
-    description: A website for showcasing my portfolio, built with Astro
-    image: /images/portfolio.png
-    live: 'https://liztrejo.dev/'
-    github: 'https://github.com/lissetet/portfolio'
-    summary: |-
-      This showcase was developed using Astro, which allows the combining of
-      elements of React, Vue, Svelte, and other popular frameworks for a
-      versatile, efficient, and modern build process. The responsive design
-      guarantees a smooth user experience across devices. The website is
-      managed through Netlify and GitHub, ensuring the most recent content is
-      always accessible. The tech stack includes HTML5, CSS3, JavaScript, Astro,
-      and Tailwind CSS.
-    technologies:
-      - HTML
-      - CSS
-      - JavaScript
-      - Markdown
-      - Astro
-      - Tailwind CSS
       - GitHub
       - Visual Studio Code
   - title: SF Street Eats
