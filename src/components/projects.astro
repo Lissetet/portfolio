@@ -60,7 +60,7 @@ projects.forEach((project) => {
 					</div>
 				</div>
 				<div class="flex flex-col sm:flex-row my-4 mx-auto gap-4">
-					<a class="btn" href={project.live} target="_blank">Live</a>
+					{project.live && <a class="btn" href={project.live} target="_blank">Live</a>}
 					<a class="btn-offset" href={project.github} target="_blank">Github</a>
 				</div>
 			</li>
