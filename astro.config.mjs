@@ -4,8 +4,8 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import markdownIntegration from '@astropub/md';
+import partytown from "@astrojs/partytown";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https:/liztrejo.dev",
   integrations: [
@@ -13,6 +13,11 @@ export default defineConfig({
     image({
       serviceEntryPoint: "@astrojs/image/sharp"
     }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"]
+      }
+    }), 
     markdownIntegration(),
     sitemap(),
     robotsTxt()],
